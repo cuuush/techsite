@@ -6,6 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BitFoundry - Not Your Dad's Tech Company</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .float { animation: float 6s ease-in-out infinite; }
+        .pulse-slow { animation: pulse 4s ease-in-out infinite; }
+        .slide-in-up { animation: slideInUp 0.8s ease-out; }
+        .bg-animated {
+            background: linear-gradient(-45deg, #000000, #4c1d95, #7c3aed, #000000);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .icon-bounce:hover {
+            animation: bounce 1s;
+        }
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% { transform: translateY(0); }
+            40%, 43% { transform: translateY(-30px); }
+            70% { transform: translateY(-15px); }
+            90% { transform: translateY(-4px); }
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
@@ -26,12 +62,22 @@
     </nav>
 
     <!-- Hero Section -->
-    <div class="bg-black text-white">
-        <div class="max-w-6xl mx-auto px-4 py-20">
+    <div class="bg-animated text-white relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="float absolute top-20 left-10 w-20 h-20 bg-purple-500 rounded-full opacity-20"></div>
+            <div class="float absolute top-40 right-20 w-16 h-16 bg-purple-400 rounded-full opacity-30" style="animation-delay: -2s;"></div>
+            <div class="float absolute bottom-20 left-1/4 w-12 h-12 bg-purple-600 rounded-full opacity-25" style="animation-delay: -4s;"></div>
+            <div class="pulse-slow absolute top-1/2 right-10 w-8 h-8 bg-white rounded-full opacity-10"></div>
+            <div class="pulse-slow absolute bottom-10 right-1/3 w-6 h-6 bg-purple-300 rounded-full opacity-20" style="animation-delay: -1s;"></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 py-20 relative z-10">
             <div class="text-center">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6">Not Your Dad's Tech Company</h1>
-                <p class="text-xl md:text-2xl mb-8 text-purple-400">Because let's be real, tech consulting needed a glow up</p>
-                <a href="#contact" class="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition duration-300">Let's Shake Things Up</a>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in-up">
+                    Not Your Dad's 
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Tech Company</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-purple-300 slide-in-up" style="animation-delay: 0.2s;">Because let's be real, tech consulting needed a glow up ✨</p>
+                <a href="#contact" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition duration-300 transform hover:scale-105 slide-in-up shadow-lg" style="animation-delay: 0.4s;">Let's Shake Things Up 🚀</a>
             </div>
         </div>
     </div>
@@ -70,30 +116,68 @@
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12">What We Do</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-800 p-8 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Django Magic</h3>
-                    <p>We make Django dance. Fast, scalable, and zero legacy code drama. Because your app should work as hard as you do.</p>
+                <div class="bg-gray-800 p-8 rounded-lg hover:bg-gray-700 transition duration-300 transform hover:scale-105">
+                    <div class="text-6xl mb-4 icon-bounce">🔧</div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Tech Stack Surgery</h3>
+                    <p>We pick the right hardware, software, and networks that actually work together. No Frankenstein systems here—just clean, powerful tech that makes sense.</p>
                 </div>
-                <div class="bg-gray-800 p-8 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Cloud Done Right</h3>
-                    <p>Cloud consulting minus the confusion. We'll get you up in the clouds without the hot air. Scalable, secure, and actually makes sense.</p>
+                <div class="bg-gray-800 p-8 rounded-lg hover:bg-gray-700 transition duration-300 transform hover:scale-105">
+                    <div class="text-6xl mb-4 icon-bounce">🪄</div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Custom Code Wizardry</h3>
+                    <p>Need software that doesn't exist? We build it. Django apps, automation scripts, workflow magic—whatever your business needs to stop sucking at efficiency.</p>
                 </div>
-                <div class="bg-gray-800 p-8 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Automation That Slaps</h3>
-                    <p>If you're doing it twice, we're automating it. Turn your repetitive tasks into your computer's problem, not yours.</p>
+                <div class="bg-gray-800 p-8 rounded-lg hover:bg-gray-700 transition duration-300 transform hover:scale-105">
+                    <div class="text-6xl mb-4 icon-bounce">🌐</div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Remote Access That Works</h3>
+                    <p>Work from anywhere without your IT crying. We set up remote solutions that are secure, fast, and won't make you question your life choices.</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg hover:bg-gray-700 transition duration-300 transform hover:scale-105">
+                    <div class="text-6xl mb-4 icon-bounce">🛡️</div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Security & Compliance</h3>
+                    <p>Keep the bad guys out and the auditors happy. We handle security and compliance so you can sleep at night instead of worrying about data breaches.</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg hover:bg-gray-700 transition duration-300 transform hover:scale-105">
+                    <div class="text-6xl mb-4 icon-bounce">👀</div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-400">24/7 System Babysitting</h3>
+                    <p>We watch your systems so you don't have to. Remote monitoring that catches problems before they become "the website is down" panic attacks.</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg hover:bg-gray-700 transition duration-300 transform hover:scale-105">
+                    <div class="text-6xl mb-4 icon-bounce">🚑</div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Tech Support That Gets It</h3>
+                    <p>When stuff breaks, we fix it fast. No "have you tried turning it off and on again?" We actually know what we're doing.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Real Talk Section -->
-    <section id="real-talk" class="py-16 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12">Real Talk</h2>
-            <div class="max-w-3xl mx-auto text-lg space-y-6">
-                <p>Look, we get it. Tech consulting has been stuck in 2005 for way too long. The same old PowerPoints, the same old problems, the same old "solutions" that just create more problems.</p>
-                <p>We started BitFoundry because we were tired of seeing companies get sold the same repackaged "digital transformation" that's about as transformative as a Windows update.</p>
-                <p>No buzzword bingo. No "synergistic cloud solutions leveraging AI blockchain." Just real tech that works, built by people who actually know what they're doing.</p>
+    <section id="real-talk" class="py-16 bg-gradient-to-br from-white to-purple-50 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-10 left-10 text-9xl">💬</div>
+            <div class="absolute bottom-10 right-10 text-9xl">🎯</div>
+            <div class="absolute top-1/2 left-1/4 text-6xl opacity-30">💡</div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Real Talk 💯</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-purple-500 transform hover:scale-105 transition duration-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="text-3xl">🤔</div>
+                        <p class="text-lg text-gray-700">Look, we get it. Tech consulting has been stuck in 2005 for way too long. The same old PowerPoints, the same old problems, the same old "solutions" that just create more problems.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-pink-500 transform hover:scale-105 transition duration-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="text-3xl">🔥</div>
+                        <p class="text-lg text-gray-700">We started BitFoundry because we were tired of seeing companies get sold the same repackaged "digital transformation" that's about as transformative as a Windows update.</p>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl shadow-xl p-8 text-white transform hover:scale-105 transition duration-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="text-3xl">✨</div>
+                        <p class="text-lg">No buzzword bingo. No "synergistic cloud solutions leveraging AI blockchain." Just real tech that works, built by people who actually know what they're doing.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -114,7 +198,7 @@
         <div class="max-w-6xl mx-auto px-4 text-center">
             <div>
                 <p class="mb-2">&copy; 2025 BitFoundry. Yeah, we do copyrights too.</p>
-                <p class="text-gray-400 text-sm">Proudly created with AI from Anthropic</p>
+                <p class="text-gray-400 text-sm">Proudly created with Claude from Anthropic</p>
             </div>
         </div>
     </footer>
