@@ -15,13 +15,19 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(50px); }
+            60% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 1; transform: translateY(0); }
         }
         .float { animation: float 6s ease-in-out infinite; }
         .pulse-slow { animation: pulse 4s ease-in-out infinite; }
-        .slide-in-up { animation: slideInUp 0.8s ease-out; }
+        .fade-in-up { opacity: 0; animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+        .fade-in-up-1 { animation-delay: 0.1s; }
+        .fade-in-up-2 { animation-delay: 0.3s; }
+        .fade-in-up-3 { animation-delay: 0.5s; }
+        .fade-in-up-4 { animation-delay: 0.7s; }
+        .fade-in-up-5 { animation-delay: 0.9s; }
         .bg-animated {
             background: linear-gradient(-45deg, #000000, #4c1d95, #7c3aed, #000000);
             background-size: 400% 400%;
@@ -72,12 +78,12 @@
         </div>
         <div class="max-w-6xl mx-auto px-4 py-20 relative z-10">
             <div class="text-center">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in-up">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 fade-in-up fade-in-up-1">
                     Not Your Dad's 
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Tech Company</span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 text-purple-300 slide-in-up" style="animation-delay: 0.2s;">Because let's be real, tech consulting needed a glow up ✨</p>
-                <a href="#contact" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition duration-300 transform hover:scale-105 slide-in-up shadow-lg" style="animation-delay: 0.4s;">Let's Shake Things Up 🚀</a>
+                <p class="text-xl md:text-2xl mb-8 text-purple-300 fade-in-up fade-in-up-2">Because let's be real, tech consulting needed a glow up ✨</p>
+                <a href="#contact" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition duration-300 transform hover:scale-105 fade-in-up fade-in-up-3 shadow-lg">Let's Shake Things Up 🚀</a>
             </div>
         </div>
     </div>
@@ -175,13 +181,13 @@
         <div class="max-w-6xl mx-auto px-4 relative z-10">
             <!-- Enhanced title with gradient text -->
             <div class="text-center mb-16">
-                <h2 class="text-6xl md:text-7xl font-bold mb-4 slide-in-up">
+                <h2 class="text-6xl md:text-7xl font-bold mb-4 fade-in-up fade-in-up-1">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-300">
                         Real Talk
                     </span>
                     <span class="text-4xl">💯</span>
                 </h2>
-                <p class="text-xl text-purple-200 slide-in-up" style="animation-delay: 0.2s;">
+                <p class="text-xl text-purple-200 fade-in-up fade-in-up-2">
                     Time to drop some truth bombs about the tech industry
                 </p>
             </div>
